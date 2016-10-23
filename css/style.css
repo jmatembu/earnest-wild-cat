@@ -12,11 +12,13 @@ html {
 
 body {
 	font-size: 18px;
-	font-family: sans-serif;
+	font-family: 'Abhaya Libre', serif;
 }
 
 ul {
 	list-style: none;
+	  text-align: center;
+
 }
 
 a {
@@ -57,6 +59,7 @@ Horizontal Slide Out Menu
 	padding: 1.25rem 3rem;
 	color: #F9F9F9;
 	transition: 0.3s;
+	font-size: 1.25rem;
 }
 #main-ul > li > a:hover {
 	background-color: #F9F7F7;
@@ -67,7 +70,7 @@ Horizontal Slide Out Menu
 /* FIXME
  * Dropdown arrow should be relative to the menu hovered 
  * This can be done with position: relative; on the parent li
- * However, it breaks the product list
+ * However, that breaks the product list
  */
 
 #main-ul > li:hover > a:after {
@@ -85,15 +88,17 @@ Horizontal Slide Out Menu
 .items {
 	background-color: #F9F7F7;
 	position: absolute;
-	top: 4rem;
-	left: -999rem; /* hide the sub menu */
-	transition: 0.3s;
+	top: 4rem; /* hide the sub menu */
+	left: 0; 
+	display: none;
+	transition: 0.5s;
 	margin: 0 auto;
 	width: 100%;
 }
 .item a > span {
 	display: block;
 	margin-top: 0.3336rem;
+
 }
 .item {
 	padding: 0.889rem;
@@ -103,21 +108,25 @@ Horizontal Slide Out Menu
 	width: 80%;
 }
 .item a {
+	font-family: 'Cormorant SC', serif;
 	color: #a2a2a2;
+	display: block;
+	width: 100%;
 }
 .item:hover > a {
 	color: #757575;
 }
+
 /* Animate the bottles a little */
 .item:hover > a > img:not(.serve-drink) {
 	transform: scale(0.7) translateX(-20px) rotate(35deg);
-	transition-duration: 0.3s;
+	transition: all 0.3s ease-in-out;
 }
 .item:hover > a > img.serve-drink {
 	transform: translateX(30%) rotate(-25deg);
 	opacity: 0.5;
-	transition-duration: 0.3s;
-	transition-delay: 0.3s;
+	transition: all 0.3s ease-in-out 0.3s;
+
 } /* End bottle animation */
 
 .item .serve-drink {
@@ -131,10 +140,11 @@ Horizontal Slide Out Menu
 }
 .items-container {
 	display: flex; /* This is how we enable flexbox. The selector has to be the container of elements you intend to lay out using flexbox */
-	justify-content: center; /* Place elements in the center along the main axis */
+	justify-content: center; /* Elements should appear centered. */
 	flex-flow: row wrap; /* Short hand property here: display elements in a row and they should wrap in the available space*/
 	align-items: center; /* Align items along the cross axis */
 }
+
 /* The partial borders on the product items */
 .items-container .item:after {
 	content: "";
@@ -149,9 +159,9 @@ Horizontal Slide Out Menu
 	content: "";
 	position: absolute;
 	height: 1px;
-	width: 80%;
+	width: 100%;
 	top: 0;
-	left: 10%;
+	left: 8%;
 	background-color: #DDDDDD;
 }
 
@@ -165,6 +175,221 @@ Horizontal Slide Out Menu
 
 /* Reveal the product list */
 #main-ul > li:hover .items {
+	display: block;
+}
+
+
+
+
+/* Few Changes
+
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 18px;
+	font-family: 'Abhaya Libre', serif;
+}
+
+ul {
+	list-style: none;
+	  text-align: center;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+.row {
+	width: 100%;
+
+}
+.row:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.col2 {
+	width: 16.66667%;
+	float: left;
+}
+
+
+.nav-container {
+	background-color: #6A2C70;
+
+}
+#main-ul {
+	border-top: 2px solid #F08A5D;
+	border-bottom: 2px solid #F08A5D;  
+}
+#main-ul > li {
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+#main-ul > li > a {
+	display: block;
+	padding: 1.25rem 3rem;
+	color: #F08A5D;  
+	transition: 0.3s;
+	font-size: 1.25rem;
+}
+#main-ul > li > a:hover {
+	background-color: #F0f8FF;
+	color: #6A2C70;
+
+}
+
+
+#main-ul > li:hover > a:after {
+	border: solid transparent;
+	border-top-color: #6A2C70;
+	content: " ";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+
+.items {
+	background-color: #F0f8FF;
+	position: absolute;
+	top: 4rem;
+	left: -999rem; 
+	transition: 0.3s;
+	margin: 0 auto;
+	width: 100%;
+}
+.item a > span {
+	display: block;
+	margin-top: 0.3336rem;
+
+}
+.item {
+	padding: 0.889rem;
+	position: relative;
+}
+.item img:not(.serve-drink) {
+	width: 80%;
+}
+.item a {
+	font-family: 'Cormorant SC', serif;
+	color:#6A2C70;
+}
+.item:hover > a {
+	color: #F08A5D;  
+.item:hover > a > img:not(.serve-drink) {
+	transform: scale(0.7) translateX(-20px) rotate(35deg);
+	transition-duration: 0.3s;
+}
+.item:hover > a > img.serve-drink {
+	transform: translateX(30%) rotate(-25deg);
+	opacity: 0.5;
+	transition-duration: 0.3s;
+	transition-delay: 0.3s;
+} 
+
+.item .serve-drink {
+	position: absolute;
+	right: 41px;
+	top: 32%;
+	opacity: 0;
+}
+.item img.serve-drink {
+	width: 20%;
+}
+.items-container {
+	display: flex; 
+	justify-content: space-around; 
+}
+.items-container:last-child {
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.items-container .item:after {
+	content: "";
+	position: absolute;
+	height: 80%;
+	width: 1px;
+	left: 0;
+	bottom: 10%;
+	background-color: #DDDDDD;
+}
+.items-container .item:before {
+	content: "";
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	top: 0;
+	left: 8%;
+	background-color: #DDDDDD;
+}
+
+/
+.items-container:first-child .item:before,
+.item:first-child:after {
+	content: "";
+	height: 0;
+}
+
+
+#main-ul > li:hover .items {
 	left: 0;
 	top: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/ 
