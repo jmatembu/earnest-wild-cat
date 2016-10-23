@@ -31,53 +31,8 @@ a {
 	display: block;
 	clear: both;
 }
-.col1 {
-	width: 8.333333%;
-}
 .col2 {
 	width: 16.66667%;
-}
-.col3 {
-	width: 25%;
-}
-.col4 {
-	width: 33.33333%;
-}
-.col5 {
-	width: 41.66667%;
-}
-.col6 {
-	width: 50%;
-}
-.col7 {
-	width: 58.33333%;
-}
-.col8 {
-	width: 66.66667%;
-}
-.col9 {
-	width: 75%;
-}
-.col10 {
-	width: 83.33333%;
-}
-.col11 {
-	width: 91.66667%;
-}
-.col12 {
-	width: 100%;
-}
-.col1,
-.col2,
-.col3,
-.col4,
-.col5,
-.col6,
-.col7,
-.col8,
-.col9,
-.col10,
-.col11 {
 	float: left;
 }
 
@@ -111,10 +66,11 @@ Horizontal Slide Out Menu
 /* Drop arrow */
 /* FIXME
  * Dropdown arrow should be relative to the menu hovered 
- * This can be done with position: relative; However, it breaks the submenu 
+ * This can be done with position: relative; on the parent li
+ * However, it breaks the product list
  */
 
-/*#main-ul > li:hover > a:after {
+#main-ul > li:hover > a:after {
 	border: solid transparent;
 	border-top-color: #6A2C70;
 	content: " ";
@@ -123,7 +79,7 @@ Horizontal Slide Out Menu
 	left: 50%;
 	border-width: 10px;
 	margin-left: -10px;
-}*/
+}
 
 /********* Sub Menu *********/
 .items {
@@ -133,53 +89,82 @@ Horizontal Slide Out Menu
 	left: -999rem; /* hide the sub menu */
 	transition: 0.3s;
 	margin: 0 auto;
-	width: 90%;
+	width: 100%;
 }
-
-.items a {
-	color: #a2a2a2;
-}
-
-.items a > span {
+.item a > span {
 	display: block;
+	margin-top: 0.3336rem;
 }
-
 .item {
 	padding: 0.889rem;
 	position: relative;
 }
+.item img:not(.serve-drink) {
+	width: 80%;
+}
+.item a {
+	color: #a2a2a2;
+}
+.item:hover > a {
+	color: #757575;
+}
+/* Animate the bottles a little */
+.item:hover > a > img:not(.serve-drink) {
+	transform: scale(0.7) translateX(-20px) rotate(35deg);
+	transition-duration: 0.3s;
+}
+.item:hover > a > img.serve-drink {
+	transform: translateX(30%) rotate(-25deg);
+	opacity: 0.5;
+	transition-duration: 0.3s;
+	transition-delay: 0.3s;
+} /* End bottle animation */
 
-.item:after {
+.item .serve-drink {
+	position: absolute;
+	right: 41px;
+	top: 32%;
+	opacity: 0;
+}
+.item img.serve-drink {
+	width: 20%;
+}
+.items-container {
+	display: flex; /* This is how we enable flexbox. The selector has to be the container of elements you intend to lay out using flexbox */
+	justify-content: center; /* Place elements in the center along the main axis */
+	flex-flow: row wrap; /* Short hand property here: display elements in a row and they should wrap in the available space*/
+	align-items: center; /* Align items along the cross axis */
+}
+/* The partial borders on the product items */
+.items-container .item:after {
 	content: "";
 	position: absolute;
 	height: 80%;
 	width: 1px;
 	left: 0;
 	bottom: 10%;
-	background-color: #ddd;
+	background-color: #DDDDDD;
 }
-
 .items-container .item:before {
 	content: "";
 	position: absolute;
 	height: 1px;
 	width: 80%;
 	top: 0;
-	bottom: 0;
-	background-color: #ddd;
+	left: 10%;
+	background-color: #DDDDDD;
 }
 
-.items-container:first-child .item:before {
+/* Remove the partial borders from the first row of product items
+ * and from the first items in any row */
+.items-container:first-child .item:before,
+.item:first-child:after {
 	content: "";
 	height: 0;
 }
-.item:first-child:after {
-	content: "";
-	width: 0;
-}
+
 /* Reveal the product list */
 #main-ul > li:hover .items {
-	left: 5%;
+	left: 0;
 	top: auto;
-
 }
