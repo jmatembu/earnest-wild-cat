@@ -1,8 +1,8 @@
 # Practice Hackathan at Learn.Modern Developer
 
-Team Earnest Wild Cat presents you with the Horizontal Slide Out Menu built during the practice hackathon at the prestigious Learn.Modern Developer. In this Hackathan, we set out to design a Horizontal Slide Out Menu similar to the [one at tympanus.net](http://tympanus.net/codrops/2013/05/17/horizontal-slide-out-menu/) but with little to no JavaScript at all. Well, we did everything we could and managed to build our own version of the Horizontal Slide Out Menu without using any JavaScript.
+Team Earnest Wild Cat presents you with the Horizontal Slide Out Menu built during the practice hackathon at the prestigious Learn.Modern Developer. In this Hackathan, we set out to design a Horizontal Slide Out Menu similar to the [one at tympanus.net](http://tympanus.net/codrops/2013/05/17/horizontal-slide-out-menu/) but with little to no JavaScript. Well, we did everything we could and managed to build our own version of the Horizontal Slide Out Menu without using any JavaScript.
 
-See Demo here: 
+See Demo here: [https://jmatembu.github.io/earnest-wild-cat/](https://jmatembu.github.io/earnest-wild-cat/)
 
 ## Team Members
 * [Joseph Michael Matembu](https://github.com/jmatembu)
